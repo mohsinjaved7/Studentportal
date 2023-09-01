@@ -1,0 +1,28 @@
+{% extends 'dashboard/dictionary.html' %}
+{% load static %}
+
+<!--{% block title %}{{ results.word | title }} | Definition of {{ results.word | title }} by Ging Dictionary{% endblock %}-->
+<!--{% block img %}<img class="profile-image mb-3 rounded-circle mx-auto" src="{% static 'images/dictionary1.jpg' %}" alt="{{ results.word | title }} | Definition of {{ results.word | title }} by Ging Dictionary" >{% endblock %}-->
+{% block content %}
+<div align="center">
+    <h2  >{{ results.word | title }}</h2>
+    <br>
+    <p>
+        <b >Meaning: </b>  {{results.meaning}}
+    </p>
+    <br>
+    <p>
+        <b>Synonyms: </b>
+        {% for s in se %}
+        <a href="/word?word={{s}}">{{ s }}</a>,
+        {% endfor %}
+    </p>
+    <br>
+    <p>
+        <b>Antonyms: </b>
+        {% for a in ae %}
+        <a href="/word?word={{a}}">{{ a }}</a>,
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}
